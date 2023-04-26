@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap">
+    <title>CooltureApp</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="picture">
+            <div class="logo">
+                <img src="./Picture2.png" alt="logo" class="culture">
+                <h1>CooltureApp</h1>
+            </div>
+        </div>
+        <div class="right">
+            <div class="textAboveForm">
+                <h1>CooltureApp by Culture8teen</h1>
+                <p class="primulParagraf">Completează formularul, trimite-ne o poza la buletin si gata. Vei putea
+                    descărca
+                    aplicația ce îți va asigura accesul in muzee.</p>
+                <p class="alDoileaParagraf">Odată ce ai completat formularul ți se va crea un cont. In contul respectiv
+                    vei avea 18
+                    tichete/vizite. <br>In aplicație vei avea un cod qr cu ajutorul căruia vei intra in muzeu. De
+                    asemenea
+                    poți să soliciți un card contra cost,<br>pe care vei avea codul qr. Ticketele vor fi valabile pe o
+                    perioadă de 1 an de la momentul înscrierii în aplicație.
+                </p>
+            </div>
+            <form action="http://httpbin.org/post" method="post">
+                <fieldset>
+                    <legend>Completeaza formularul</legend>
+                    <div>
+                        <label for="fName">Nume</label>
+                        <input type="text" id="fName" name="userFirstName" placeholder="Popescu" required>
+                        <span></span>
+                    </div>
+                    <div>
+                        <label for="lName">Prenume</label>
+                        <input type="text" id="lName" name="userLastName" placeholder="Ion" required>
+                        <span></span>
+                    </div>
+                    <div>
+                        <label for="CNP">Cod numeric personal</label>
+                        <input type="text" id="CNP" name="userCNP" placeholder="1971211xxxxxx" required pattern="\d{13}"
+                            title="CNP-ul trebuie sa aiba 13 cifre">
+                        <span></span>
+                    </div>
+                    <div>
+                        <label for="pozaCI">Poza C.I</label>
+                        <input type="file" id="pozaCI" name="userCI">
+                    </div>
+                    <fieldset class="dob">
+                        <legend>Data nasterii</legend>
+                        <div>
+                            <label for="uDay">Ziua</label>
+                            <input type="number" id="uDay" name="userDayOfBirth" value="0" min="1" max="31" required>
+                            <span></span>
+                        </div>
+                        <div>
+                            <label for="uMonth">Luna</label>
+                            <input type="number" id="uMonth" name="userMonthOfBirth" value="0" min="1" max="12"
+                                required>
+                            <span></span>
+                        </div>
+                        <div>
+                            <label for="uYear">Anul</label>
+                            <input type="number" id="uYear" name="userYearOfBirth" value="2004" min="2005" max="2100"
+                                required>
+                            <span></span>
+                        </div>
+                    </fieldset>
+                    <div>
+                        <label for="uEmail">Adresa de e-mail</label>
+                        <input type="email" name="userEmail" id="uEmail" required
+                            pattern="[\w|\-]+@[\w]+\.[a-zA-Z]{2,4}">
+                        <span></span>
+                    </div>
+                    <div>
+                        <label for="uPhone">Numar de telefon</label>
+                        <input type="text" name="phone" id="uPhone" required
+                            pattern="[0-9]{10}|[0-9]{4}\.*\s*-*[0-9]{3}\.*\s*-*[0-9]{3}">
+                        <span></span>
+                    </div>
+                    <div>
+                        <label for="uPassword">Parola (cel putin 8 caractere)</label>
+                        <!-- <input type="password" name="password" id="uPassword" required
+                            pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}"
+                            title="Parola trebuie sa contine o litera mica, o litera mare, o cifra, un simbol si cel putin 8 caractere"> -->
+                        <input type="password" name="password" id="uPassword" required pattern="\w{8,}"
+                            title="Parola trebuia sa aiba cel putin 8 caractere">
+                        <span></span>
+                    </div>
+                    <div>
+                        <label for="uConfirmPassword">Confirma parola</label>
+                        <input type="password" name="confirmPassword" id="uConfirmPassword" required pattern="\w{8,}"
+                            title="Parola trebuia sa aiba cel putin 8 caractere">
+                        <span></span>
+                    </div>
+                </fieldset>
+                <button type="submit">Creeaza-ti contul</button>
+            </form>
+            <div class="aiDejaCont">Ai deja cont? Conecteaza-te <a href="#">aici</a></div>
+        </div>
+    </div>
+</body>
+
+</html>
