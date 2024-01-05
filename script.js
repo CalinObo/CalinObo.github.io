@@ -4,7 +4,7 @@ let gold = 50;
 let currentWeapon = 0;
 let fighting;
 let monsterHealth;
-let inventory = ["stick"];
+let inventory = ["băț"];
 
 const button1 = document.querySelector("#button1");
 const button2 = document.querySelector("#button2");
@@ -17,24 +17,24 @@ const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 const weapons = [
-  { name: "stick", power: 5 },
-  { name: "dagger", power: 30 },
-  { name: "claw hammer", power: 50 },
-  { name: "sword", power: 100 },
+  { name: "băț", power: 5 },
+  { name: "pumnal", power: 30 },
+  { name: "ciocan mare rau", power: 50 },
+  { name: "sabie", power: 100 },
 ];
 const monsters = [
   {
-    name: "slime",
+    name: "Emoloaica",
     level: 2,
     health: 15,
   },
   {
-    name: "fanged beast",
+    name: "Crina Lup",
     level: 8,
     health: 60,
   },
   {
-    name: "dragon",
+    name: "Cristina Dragon Owner",
     level: 20,
     health: 300,
   },
@@ -42,59 +42,59 @@ const monsters = [
 const locations = [
   {
     name: "town square",
-    "button text": ["Go to store", "Go to cave", "Fight dragon"],
+    "button text": ["Magazin", "Pesteră", "Big boss"],
     "button functions": [goStore, goCave, fightDragon],
-    text: 'You are in the town square. You see a sign that says "Store".',
+    text: 'Esti in lojă. Vezi un semn care spune "Magazin". Ce alegi sa faci?',
   },
   {
     name: "store",
     "button text": [
-      "Buy 10 health (10 gold)",
-      "Buy weapon (30 gold)",
-      "Go to town square",
+      "Ia 10 viata (10 biștari)",
+      "Ia o arma nice (30 biștari)",
+      "Inapoi in loja",
     ],
     "button functions": [buyHealth, buyWeapon, goTown],
-    text: "You enter the store.",
+    text: 'Intri in magazin si-l auzi pe Vaiol: "Ia zi viata mea cu ce te servesc?"',
   },
   {
     name: "cave",
-    "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
+    "button text": ["Bati monstru mic", "Bati lup cu colți", "Inapoi in loja"],
     "button functions": [fightSlime, fightBeast, goTown],
-    text: "You enter the cave. You see some monsters.",
+    text: "Pfaaaa, ca esti in pestera si e plin de monstrii, ti-o arzi cu cineva sau nah?",
   },
   {
     name: "fight",
-    "button text": ["Attack", "Dodge", "Run"],
+    "button text": ["Lovesc", "Feresc", "Fug"],
     "button functions": [attack, dodge, goTown],
-    text: "You are fighting a monster.",
+    text: "Te iei la trantă.",
   },
   {
     name: "kill monster",
     "button text": [
-      "Go to town square",
-      "Go to town square",
-      "Go to town square",
+      "Mergi in loja",
+      "Mergi in magazin",
+      "Mergi in loja",
     ],
-    "button functions": [goTown, goTown, easterEgg],
-    text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.',
+    "button functions": [goTown, goStore, easterEgg],
+    text: 'Monstrul zice "Arg!" și moare incet dupa tine. Primesti viatsa si biștari',
   },
   {
     name: "lose",
-    "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
+    "button text": ["REPLAY?", "N-ai tupeu?", "Smr io?"],
     "button functions": [restart, restart, restart],
-    text: "You die. ☠️",
+    text: "Ai murit hahaha ☠️",
   },
   {
     name: "win",
-    "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
+    "button text": ["REPLAY?", "Bravo tată", "Ia uite ce baiat"],
     "button functions": [restart, restart, restart],
-    text: "You defeat the dragon! YOU WIN THE GAME! 🎉",
+    text: "L-ai batut pe big boss 🎉",
   },
   {
     name: "easter egg",
     "button text": ["2", "8", "Go to town square?"],
     "button functions": [pickTwo, pickEight, goTown],
-    text: "You find a secret game. Pick a number above. Ten numbers will be randomly chosen between 0 and 10. If the number you choose matches one of the random numbers, you win!",
+    text: " Find da ball uer da ball, fii atent asta e ou de paste secret, nebunie ce sa mai, alege un numar de mai sus si eu trag altele 10 de la 0 la 10, daca numarul tau e printre ele castigi.",
   },
 ];
 
@@ -133,7 +133,7 @@ function buyHealth() {
     goldText.innerText = gold;
     healthText.innerText = health;
   } else {
-    text.innerText = "You do not have enough gold to buy health.";
+    text.innerText = "Vaiol: N-ai bani saracule da-i drumu de aici";
   }
 }
 
@@ -144,15 +144,15 @@ function buyWeapon() {
       currentWeapon++;
       goldText.innerText = gold;
       let newWeapon = weapons[currentWeapon].name;
-      text.innerText = "You now have a " + newWeapon + ".";
+      text.innerText = "Acum ai " + newWeapon + ".";
       inventory.push(newWeapon);
-      text.innerText += " In your inventory you have: " + inventory;
+      text.innerText += " In inventarul tau bengos ai " + inventory;
     } else {
-      text.innerText = "You do not have enough gold to buy a weapon.";
+      text.innerText = "Vaiol: N-ai bani de arma saracule da-i drumu de aici";
     }
   } else {
-    text.innerText = "You already have the most powerful weapon!";
-    button2.innerText = "Sell weapon for 15 gold";
+    text.innerText = "Vaiol: Ai deja cea mai smechera arma bossule";
+    button2.innerText = "Vine arma pentru 15 biștari";
     button2.onclick = sellWeapon;
   }
 }
@@ -162,10 +162,10 @@ function sellWeapon() {
     gold += 15;
     goldText.innerText = gold;
     let currentWeapon = inventory.shift();
-    text.innerText = "You sold a " + currentWeapon + ".";
-    text.innerText += " In your inventory you have: " + inventory;
+    text.innerText = "Ai vandut " + currentWeapon + ".";
+    text.innerText += " In inventarul tau bengos ai " + inventory;
   } else {
-    text.innerText = "Don't sell your only weapon!";
+    text.innerText = "Un băț ai si pe ala in vinzi?";
   }
 }
 
@@ -193,9 +193,9 @@ function goFight() {
 }
 
 function attack() {
-  text.innerText = "The " + monsters[fighting].name + " attacks.";
+  text.innerText = monsters[fighting].name + " ti-o dă.";
   text.innerText +=
-    " You attack it with your " + weapons[currentWeapon].name + ".";
+    " Îi dai in cap cu " + weapons[currentWeapon].name + ".";
   health -= getMonsterAttackValue(monsters[fighting].level);
   if (isMonsterHit()) {
     monsterHealth -=
@@ -203,7 +203,7 @@ function attack() {
     healthText.innerText = health;
     monsterHealthText.innerText = monsterHealth;
   } else {
-    text.innerText += "You miss.";
+    text.innerText += "Ratezi hahaha";
   }
   if (health <= 0) {
     lose();
@@ -211,7 +211,7 @@ function attack() {
     fighting === 2 ? winGame() : defeatMonster();
   }
   if (Math.random() <= 0.1 && inventory.length !== 1) {
-    text.innerText += " Your " + inventory.pop() + " breaks.";
+    text.innerText += inventory.pop() + " s-a rupt :( .";
     currentWeapon--;
   }
 }
@@ -225,7 +225,7 @@ function isMonsterHit() {
   return Math.random() > 0.2 || health < 20;
 }
 function dodge() {
-  text.innerText = "You dodge the attack from the " + monsters[fighting].name;
+  text.innerText = "Te-ai ferit de atacul de la " + monsters[fighting].name;
 }
 
 function defeatMonster() {
@@ -249,7 +249,7 @@ function restart() {
   health = 100;
   gold = 50;
   currentWeapon = 0;
-  inventory = ["stick"];
+  inventory = ["băț"];
   goldText.innerText = gold;
   healthText.innerText = health;
   xpText.innerText = xp;
@@ -273,16 +273,16 @@ function pick(guess) {
   while (numbers.length < 10) {
     numbers.push(Math.floor(Math.random() * 11));
   }
-  text.innerText = "You picked " + guess + ". Here are the random numbers:\n";
+  text.innerText = "Ai ales " + guess + ". Ia vezi astea 10 numere:\n";
   for (let i = 0; i < 10; i++) {
     text.innerText += numbers[i] + "\n";
   }
   if (numbers.indexOf(guess) !== -1) {
-    text.innerText += "Right! You win 20 gold!";
+    text.innerText += "Tank! Primesti 20 de biștari!";
     gold += 20;
     goldText.innerText = gold;
   } else {
-    text.innerText += "Wrong! You lose 10 health!";
+    text.innerText += "Tzeapa! Pierzi 10 veatsa";
     health -= 10;
     healthText.innerText = health;
     if (health <= 0) {
