@@ -1,0 +1,238 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+input[type="file"] {
+  appearance: none;
+}
+
+button,
+label,
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="file"],
+textarea {
+  display: block;
+  font-family: inherit;
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 5px;
+  height: 30px;
+}
+textarea {
+  margin-top: 1em;
+  resize: vertical;
+  height: 10em;
+}
+input[type="file"] {
+  width: 100%;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.culture {
+  height: 10vh;
+}
+
+.picture {
+  background-image: url(./f3efa906-f54c-42fc-96e1-34e06308cf02.jpg);
+  background-position: 20% 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 20em;
+}
+
+.logo {
+  display: flex;
+  flex-flow: row wrap;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: relative;
+  top: 20vh;
+  gap: 1vw;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+h1 {
+  color: #fff;
+}
+
+.right {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  background: linear-gradient(#cb6ce6, #111040);
+  color: #fff;
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+.textAboveForm {
+  width: 100%;
+  margin: 2px solid;
+  padding: 1em;
+}
+
+.primulParagraf,
+.alDoileaParagraf {
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+form > fieldset {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 6fr;
+  padding: 1em;
+}
+
+fieldset:not(.dob) > div {
+  display: grid;
+  margin: 0 auto;
+  width: 80%;
+  border-radius: 4px;
+}
+
+fieldset:not(.dob) > fieldset {
+  display: flex;
+  width: 82%;
+}
+
+fieldset:not(.dob) > fieldset > div {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  padding: 1em 0em;
+  border-radius: 4px;
+}
+
+form > fieldset {
+  justify-content: center;
+}
+
+form > fieldset > legend {
+  text-align: center;
+  padding: 0em 1em;
+}
+
+label[for="uDay"],
+label[for="uMonth"],
+label[for="uYear"] {
+  display: flex;
+  align-items: center;
+}
+
+fieldset.dob > div > input[type="number"]::-webkit-outer-spin-button,
+fieldset.dob > div > input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+fieldset.dob > div > input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+fieldset.dob > legend {
+  margin-left: 0.5em;
+  padding: 0em 0.5em;
+}
+
+button {
+  text-align: center;
+  margin: 0 auto;
+  width: 60%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.aiDejaCont {
+  margin: 0 auto;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.textAboveForm > h1 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+input + span {
+  position: relative;
+}
+
+fieldset:not(.dob) > div > input + span:before {
+  position: absolute;
+  right: 5px;
+  top: -25px;
+}
+
+fieldset.dob > div > input[type="number"] {
+  height: 25px;
+}
+
+input + span:before {
+  position: absolute;
+  right: 3px;
+  top: 0px;
+}
+
+input:invalid + span::before {
+  content: "✖";
+  color: red;
+}
+
+input:valid + span::before {
+  content: "✔";
+  color: green;
+}
+fieldset {
+  border: 3px solid;
+}
+
+a:link {
+  color: rgb(222, 222, 44);
+}
+
+a:visited {
+  color: greenyellow;
+}
+
+@media screen and (max-width: 1162px) {
+  label[for="uPassword"],
+  label[for="uConfirmPassword"] {
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .picture {
+    background-position: 25% 20%;
+    height: 20em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  button {
+    width: 70%;
+  }
+}
