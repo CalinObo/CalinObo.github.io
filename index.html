@@ -1,31 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="./styles.css">
-    <title>RPG - Dragon Repeller</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap"
+    />
+    <title>Aixperia</title>
   </head>
+
   <body>
-    <div id="game">
-      <div id="stats">
-        <span class="stat">Experienta: <strong><span id="xpText">0</span></strong></span>
-        <span class="stat">Veatsa: <strong><span id="healthText">100</span></strong></span>
-        <span class="stat">Biștari: <strong><span id="goldText">50</span></strong></span>
-      </div>
-      <div id="controls">
-        <button id="button1">Merg in magazin</button>
-        <button id="button2">Merg in pestera</button>
-        <button id="button3">Ma iau la tranta cu big boss</button>
-      </div>
-      <div id="monsterStats">
-        <span class="stat">Monstruozitate: <strong><span id="monsterName"></span></strong></span>
-        <span class="stat">Veatsa monstruozitatii: <strong><span id="monsterHealth"></span></strong></span>
-      </div>
-      <div id="text">
-        Hai salut si bine ai venit pe loja frumosilor! Ce cauti aici? Vrei sa pleci? Ia vezi ca big boss nu-ti da voie, da-i o karata sa poti pleca.<br>
-        Ai grija ca-i puternic, zic sa te faci tank inainte.
+    <div class="main">
+      <div class="picture"></div>
+      <div class="right">
+        <div class="textAboveForm">
+          <h1>AIxperia</h1>
+          <p class="primulParagraf">
+            Complete the form below and we will send the experience to your
+            home. Let us know if you need any special accomodation
+          </p>
+        </div>
+        <form action="http://httpbin.org/post" method="post">
+          <fieldset>
+            <legend>Complete the form</legend>
+            <div>
+              <label for="fName">Full name</label>
+              <input
+                type="text"
+                id="fName"
+                name="userFirstName"
+                placeholder="Smith John"
+                required
+              />
+              <span></span>
+            </div>
+            <div>
+              <label for="lName">Address</label>
+              <input
+                type="text"
+                id="lName"
+                name="userLastName"
+                placeholder="Street, number"
+                required
+              />
+              <span></span>
+            </div>
+
+            <div>
+              <label for="uEmail">E-mail</label>
+              <input type="email" name="userEmail" id="uEmail" required />
+              <span></span>
+            </div>
+            <div>
+              <label for="uPhone">Phone number</label>
+              <input
+                type="text"
+                name="phone"
+                id="uPhone"
+                required
+                pattern="[0-9]{10}|[0-9]{4}\.*\s*-*[0-9]{3}\.*\s*-*[0-9]{3}"
+              />
+              <span></span>
+            </div>
+            <div>
+              <textarea
+                rows="10"
+                cols="50"
+                placeholder="Write here your special needs if there are any"
+              ></textarea>
+            </div>
+          </fieldset>
+          <button type="submit">Ask for an experience</button>
+        </form>
       </div>
     </div>
-    <script src="./script.js"></script>
   </body>
 </html>
